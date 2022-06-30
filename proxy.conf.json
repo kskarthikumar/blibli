@@ -1,0 +1,7 @@
+{
+    "/backend/search/": {
+        "target": "http://blibli.com",
+        "secure": false,
+        "changeOrigin": true
+    }
+}

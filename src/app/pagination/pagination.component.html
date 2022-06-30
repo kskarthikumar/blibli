@@ -1,0 +1,7 @@
+<div *ngIf="productList && productList.length >= 24" class="container">
+    <div class="row d-flex justify-content-center">
+        <button class="pagination prev" [disabled]="paginationInd == 0" (click)="doPagination('prev')"></button>
+        <button class="pagination next" [disabled]="paginationInd == totalCount-1"
+            (click)="doPagination('next')"></button>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="header">
+  <div class="container">
+    <div class="row">
+      <div class="formWrap col-sm-8 col-md-6 col-lg-6">
+        <form [formGroup]="searchFrom" (submit)="searchProduct()">
+          <input type="text" class="form-control searchField" [(ngModel)]="searchTerm" formControlName="searchTerm"
+            name="searchTerm" placeholder="Search your products here" #searchRef />
+          <input [disabled]="!searchRef.value" class="searchButton submit" type="submit" value="" />
+          <input *ngIf="searchRef.value" class="searchButton close" (click)="searchRef.value=''" type="button"
+            value="" />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<app-product-group [productList]="productList"></app-product-group>
+
+<app-pagination (getProduct)="searchProduct($event)" [totalCount]="totalCount" [searchTerm]="searchTerm"
+  [productList]="productList"></app-pagination>
+
+<button class="pagination pageToTop border-0" *ngIf="showToTop && productList && productList.length >= 12"
+  (click)="scrollbarTop()"></button>
+<app-loader [showLoader]="productService.displayLoader"></app-loader>
