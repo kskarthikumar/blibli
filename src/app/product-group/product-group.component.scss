@@ -1,0 +1,28 @@
+.generalErr,
+.searchErr {
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 1rem;
+    white-space: normal;
+    word-break: break-word;
+}
+
+.allCaughtUp {
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8' standalone='no'%3F%3E%3Csvg xmlns:dc='http://purl.org/dc/elements/1.1/' xmlns:cc='http://creativecommons.org/ns%23' xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns%23' xmlns:svg='http://www.w3.org/2000/svg' xmlns='http://www.w3.org/2000/svg' xmlns:sodipodi='http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd' xmlns:inkscape='http://www.inkscape.org/namespaces/inkscape' version='1.1' x='0px' y='0px' viewBox='0 0 97.199997 97.199997' xml:space='preserve' id='svg12' sodipodi:docname='noun_675776_cc.svg' width='97.199997' height='97.199997' inkscape:version='0.92.2 5c3e80d, 2017-08-06'%3E%3Cmetadata id='metadata18'%3E%3Crdf:RDF%3E%3Ccc:Work rdf:about=''%3E%3Cdc:format%3Eimage/svg+xml%3C/dc:format%3E%3Cdc:type rdf:resource='http://purl.org/dc/dcmitype/StillImage' /%3E%3Cdc:title%3E%3C/dc:title%3E%3C/cc:Work%3E%3C/rdf:RDF%3E%3C/metadata%3E%3Cdefs id='defs16' /%3E%3Csodipodi:namedview pagecolor='%23ffffff' bordercolor='%23666666' borderopacity='1' objecttolerance='10' gridtolerance='10' guidetolerance='10' inkscape:pageopacity='0' inkscape:pageshadow='2' inkscape:window-width='640' inkscape:window-height='480' id='namedview14' showgrid='false' fit-margin-top='10' fit-margin-left='10' fit-margin-right='10' fit-margin-bottom='10' inkscape:zoom='1.888' inkscape:cx='48.6' inkscape:cy='36.1' inkscape:window-x='0' inkscape:window-y='0' inkscape:window-maximized='0' inkscape:current-layer='svg12' /%3E%3Cg id='g6' transform='translate(-1.4,-1.4)' style='fill:%23008000'%3E%3Cpolygon points='44.1,58.3 31.8,45.9 28.8,48.9 44.1,64.2 69.5,38.8 66.6,35.8 ' id='polygon2' style='fill:%23008000' /%3E%3Cpath d='M 50,88.6 C 71.3,88.6 88.6,71.3 88.6,50 88.6,28.7 71.3,11.4 50,11.4 28.7,11.4 11.4,28.7 11.4,50 11.4,71.3 28.7,88.6 50,88.6 Z m 0,-73 C 68.9,15.6 84.4,31 84.4,50 84.4,69 68.9,84.4 50,84.4 31.1,84.4 15.6,68.9 15.6,50 15.6,31.1 31.1,15.6 50,15.6 Z' id='path4' inkscape:connector-curvature='0' style='fill:%23008000' /%3E%3C/g%3E%3C/svg%3E");
+    padding: 1rem;
+    padding-top: 4.5rem;
+    background-repeat: no-repeat;
+    background-size: 60px;
+    background-position: center 10px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 25px;
+    width: 100%;
+    white-space: normal;
+    word-break: break-word;
+
+    @media (min-width: 768px) {
+        width: 70%;
+    }
+
+}

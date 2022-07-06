@@ -1,44 +1,51 @@
-<div class="container">
-    <div class="row">
-        <div *ngIf="!productList; else showProduct" class="alert alert-danger">
-            Sorry no such item found..!
-        </div>
-        <ng-template #showProduct>
-            <div *ngFor="let product of productList" class="productListContainer col-sm-12 col-md-6 col-lg-4 col-xl-3">
-                <div class="product-list">
-                    <div class="product-image" [ngStyle]="{'background-image': 'url(' + product.images[0] + ')'}">
+<div class="productWrap">
+    <div class="container">
+        <div class="row">
+            <ng-container *ngIf="productList">
+                <div *ngFor="let product of productList"
+                    class="productListContainer col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                    <div class="product-list">
+                        <div class="product-image" [ngStyle]="{'background-image': 'url(' + product.images[0] + ')'}">
+                        </div>
+                        <div class="product-details">
+                            <h6>
+                                {{ (product.name.length>=70)? (product.name | slice:0:70)+'..':(product.name) }}
+                            </h6>
+                            <div class="product-price flex-column align-content-center justify-content-start">
+                                <p *ngIf="product.price" class="product-price_label">{{product.price.offerPriceDisplay?
+                                    product.price.offerPriceDisplay : product.price.priceDisplay}}</p>
+                                <p *ngIf="product.price.strikeThroughPriceDisplay"><span
+                                        class="product-price_strick">{{product.price.strikeThroughPriceDisplay}}</span>
+                                    <span class="product-price_discount">{{product.price.discount}}%</span>
+                                </p>
+                            </div>
+                            <div class="product-vendor">
+                                <span class="product-vendor_name">{{product.location}}</span>
+                            </div>
+                            <div class="product-review">
+                                <p *ngIf="product.review">
+                                    <svg data-v-a49f0df6="" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                        width="24" height="24" viewBox="0 0 24 24" class="icon-rating">
+                                        <path
+                                            d="M18.865 7.85l-3.251-.503-1.341-2.888c-.904-1.945-3.643-1.945-4.546 0L8.386 7.347l-3.252.503c-2.02.312-2.845 2.801-1.417 4.28l2.435 2.523-.548 3.395c-.338 2.091 1.858 3.654 3.693 2.63L12 19.167l2.704 1.51c1.834 1.024 4.03-.54 3.692-2.63l-.548-3.395 2.436-2.523c1.426-1.479.602-3.969-1.419-4.28z">
+                                        </path>
+                                    </svg>
+                                    <span
+                                        class="product-rating_value">{{product.review.rating}}&nbsp;({{product.review.count}})</span>
+                                </p>
+                            </div>
+                        </div>
+                        <button (click)="showAlert()" type="button" class="btn btn-primary">View details</button>
                     </div>
-                    <div class="product-details">
-                        <h6>
-                            {{ (product.name.length>=70)? (product.name | slice:0:70)+'..':(product.name) }}
-                        </h6>
-                        <div class="product-price flex-column align-content-center justify-content-start">
-                            <p *ngIf="product.price" class="product-price_label">{{product.price.offerPriceDisplay?
-                                product.price.offerPriceDisplay : product.price.priceDisplay}}</p>
-                            <p *ngIf="product.price.strikeThroughPriceDisplay"><span
-                                    class="product-price_strick">{{product.price.strikeThroughPriceDisplay}}</span>
-                                <span class="product-price_discount">{{product.price.discount}}%</span>
-                            </p>
-                        </div>
-                        <div class="product-vendor">
-                            <span class="product-vendor_name">{{product.location}}</span>
-                        </div>
-                        <div class="product-review">
-                            <p *ngIf="product.review">
-                                <svg data-v-a49f0df6="" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                    width="24" height="24" viewBox="0 0 24 24" class="icon-rating">
-                                    <path
-                                        d="M18.865 7.85l-3.251-.503-1.341-2.888c-.904-1.945-3.643-1.945-4.546 0L8.386 7.347l-3.252.503c-2.02.312-2.845 2.801-1.417 4.28l2.435 2.523-.548 3.395c-.338 2.091 1.858 3.654 3.693 2.63L12 19.167l2.704 1.51c1.834 1.024 4.03-.54 3.692-2.63l-.548-3.395 2.436-2.523c1.426-1.479.602-3.969-1.419-4.28z">
-                                    </path>
-                                </svg>
-                                <span
-                                    class="product-rating_value">{{product.review.rating}}&nbsp;({{product.review.count}})</span>
-                            </p>
-                        </div>
-                    </div>
-                    <button (click)="showAlert()" type="button" class="btn btn-primary">View details</button>
                 </div>
-            </div>
-        </ng-template>
+            </ng-container>
+            <app-loader [showLoader]="productService.displayLoader"></app-loader>
+        </div>
+        <div class="d-flex justify-content-center">
+            <span *ngIf="productService.showAllCaughtErr" class="allCaughtUp badge text-bg-light">
+                Your'e done!<br>
+                Try some new product with our variety of range
+            </span>
+        </div>
     </div>
 </div>

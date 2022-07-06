@@ -8,6 +8,8 @@ import { Observable } from 'rxjs';
 export class ProductServiceService {
 
   public displayLoader: boolean = false;
+  public showSearchError: boolean = false;
+  public showAllCaughtErr: boolean = false;
   
   constructor(private http: HttpClient) { }
 
