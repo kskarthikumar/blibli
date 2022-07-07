@@ -2,6 +2,7 @@ import { Component, HostListener, OnInit, Renderer2, ViewEncapsulation } from '@
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProductServiceService } from './product-service/product-service.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { APPCONSTANTS } from './constants/constants';
 
 @Component({
   selector: 'app-root',
@@ -33,11 +34,11 @@ export class AppComponent implements OnInit {
     }
   }
   openSnackBar() {
-    this._snackBar.open('No products available..! Please try something new.', '', {
+    this._snackBar.open(APPCONSTANTS.GENERIC_ERR_MSG, '', {
       horizontalPosition: 'center',
       verticalPosition: 'top',
       panelClass: 'error-alert-snackbar',
-      duration: 4000
+      duration: APPCONSTANTS.GENERIC_ERR_MSG_TIMER
     });
   }
   searchProduct(event?: any) {
@@ -108,7 +109,7 @@ export class AppComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
-    if (window.scrollY >= 800) {
+    if (window.scrollY >= APPCONSTANTS.SCROLL_TO_TOP) {
       this.showToTop = true;
     } else {
       this.showToTop = false;
